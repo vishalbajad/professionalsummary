@@ -1,38 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head><title> Vishal Bajad - Professional Summary </title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishal Bajad - Professional Summary</title>
 </head>
+<style>
+ html, body, iframe {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#download-pdf-btn {}
+</style>
 <body>
-  <button onclick="convertToPDF()">Convert to PDF</button>
-  <br/><br/><br/>
-  <script type="application/javascript">
-    // Function to convert Google Docs URL to PDF
-    function convertToPDF() {
-      var googleDocsUrl = 'https://docs.google.com/document/d/1JwC0L969bNH_lfMnWAiyouUd3yV5MsuT/edit?rm=minimal';
-      fetch(googleDocsUrl)
-        .then(response => response.text())
-        .then(html => {
-          // Use html2canvas to render content as a canvas
-          html2canvas(document.body, { 
-            scrollX: 0, 
-            scrollY: -window.scrollY 
-          }).then(canvas => {
-            var imgData = canvas.toDataURL('image/png');
-            var pdf = new jsPDF();
-            
-            // Add canvas image to PDF
-            pdf.addImage(imgData, 'PNG', 0, 0);
-            
-            // Save PDF
-            pdf.save('google-docs.pdf');
-          });
-        })
-        .catch(error => console.error('Error fetching Google Docs content:', error));
-    }
-  </script>
-<iframe src="https://docs.google.com/document/d/1JwC0L969bNH_lfMnWAiyouUd3yV5MsuT/edit?rm=minimal" frameborder="0">
-</iframe>
+
+<!-- Button to download as PDF -->
+<button id="download-pdf-btn">Download PDF</button>
+
+<!-- Placeholder for Google Docs content -->
+<div id="google-docs-container"></div>
+
+<script>
+  // Google Docs Embed API Configuration
+  var googleDocsViewerURL = 'https://docs.google.com/viewer';
+  var googleDocsFileURL = 'https://docs.google.com/document/d/11s_fPlcD-fPqZ7rfeJNsBCrVhHt10QIz0Bsb7r-bMSs/edit?usp=sharing&rm=minimal';
+  var googleDocsEmbedURL = googleDocsViewerURL + '?embedded=true&url=' + encodeURIComponent(googleDocsFileURL);
+
+  // Embed Google Docs document
+  var googleDocsContainer = document.getElementById('google-docs-container');
+  googleDocsContainer.innerHTML = '<iframe src="' + googleDocsFileURL + '" width="100%" height="600px" frameborder="0"></iframe>';
+
+  // Function to download the Google Docs document as PDF
+  function downloadAsPDF() {
+    var pdfDownloadLink = googleDocsFileURL.replace('edit', 'export') + '&format=pdf';
+    window.open(pdfDownloadLink);
+  }
+
+  // Attach event listener to the download PDF button
+  var downloadPDFBtn = document.getElementById('download-pdf-btn');
+  downloadPDFBtn.addEventListener('click', downloadAsPDF);
+</script>
+
 </body>
 </html>
