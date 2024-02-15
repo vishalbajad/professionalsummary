@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head><title> Vishal Bajad - Professional Summary </title></head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<head><title> Vishal Bajad - Professional Summary </title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"/>
+</head>
 <body>
   <button onclick="convertToPDF()">Convert to PDF</button>
-  
   <script>
     // Function to convert Google Docs URL to PDF
     function convertToPDF() {
       var googleDocsUrl = 'https://docs.google.com/document/d/1JwC0L969bNH_lfMnWAiyouUd3yV5MsuT/edit?rm=minimal';
-      
-      // Fetch the HTML content from the Google Docs URL
       fetch(googleDocsUrl)
         .then(response => response.text())
         .then(html => {
