@@ -24,8 +24,10 @@
 
 <script>
   // Google Docs Embed API Configuration
+  var documentId = '1EfBHUTh6YoWauZ_8TP1xZhb5rZX12DbS';
+  var documentName = 'Vishal_Bajad_NET_11+Yrs.pdf';
   var googleDocsViewerURL = 'https://drive.google.com/viewerng/viewer';
-  var googleDocsFileURL = 'https://drive.google.com/file/d/1EfBHUTh6YoWauZ_8TP1xZhb5rZX12DbS/preview';
+  var googleDocsFileURL = 'https://drive.google.com/file/d/'+documentId+'/preview';
   var googleDocsEmbedURL = googleDocsViewerURL + '?embedded=true&url=' + encodeURIComponent(googleDocsFileURL);
 
   // Embed Google Docs document
@@ -33,12 +35,10 @@
   googleDocsContainer.innerHTML = '<iframe src="' + googleDocsFileURL + '" width="100%" height="600px" frameborder="0"></iframe>';
 
   function downloadAsPDF() {
-    var pdfDownloadLink = googleDocsFileURL.replace('edit', 'export') + '&format=pdf';
-    
     // Create a temporary anchor element
     var downloadAnchor = document.createElement('a');
-    downloadAnchor.href = pdfDownloadLink;
-    downloadAnchor.download = 'document.pdf'; // Set the filename for the downloaded file
+    downloadAnchor.href = 'https://drive.google.com/uc?export=download&id='+documentId;
+    downloadAnchor.download = documentName; // Set the filename for the downloaded file
     downloadAnchor.click(); // Simulate a click on the anchor to start the download
   }
 
