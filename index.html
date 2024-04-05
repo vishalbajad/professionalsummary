@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vishal Bajad .NET 12 Years - Professional Summary</title>
 </head>
-<style>
-#download-pdf-btn { position: fixed; font-size: 18px; margin-top: 2%; margin-left: 2%; }
-</style>
 <body>
-<button id="download-pdf-btn" onclick="downloadPDF()>Download PDF</button>
+<div style="text-align: center; margin-top: 20px;">
+    <button onclick="downloadPDF()">Download as PDF</button>
+</div>
 <iframe id="google-docs-iframe" src="https://docs.google.com/document/d/1hnyg7u7Uo7GmwTcR6lCOffQ_Y3nHAJNkdkwGck81D6Q/preview" width="100%" height="500px" frameborder="0"></iframe>
 <script>
 function downloadPDF() {
@@ -17,6 +16,5 @@ function downloadPDF() {
     var pdfUrl = 'https://docs.google.com/document/d/' + docId + '/export?format=pdf';
     window.open(pdfUrl);
 }
-</script>
-</body>
+</script></body>
 </html>
