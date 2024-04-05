@@ -34,12 +34,10 @@
   googleDocsContainer.innerHTML = '<iframe src="' + googleDocsFileURL + '" width="100%" height="600px" frameborder="0"></iframe>';
 
   function downloadAsPDF() {
-    // Create a temporary anchor element
-    var downloadAnchor = document.createElement('a');
-    downloadAnchor.href = 'https://drive.google.com/uc?export=download&id='+documentId;
-    downloadAnchor.download = documentName; // Set the filename for the downloaded file
-    downloadAnchor.click(); // Simulate a click on the anchor to start the download
-  }
+    var docId = '1hnyg7u7Uo7GmwTcR6lCOffQ_Y3nHAJNkdkwGck81D6Q';
+    var pdfUrl = 'https://docs.google.com/document/d/' + documentId + '/export?format=pdf';
+    window.open(pdfUrl);
+ }
 
   // Attach event listener to the download PDF button
   var downloadPDFBtn = document.getElementById('download-pdf-btn');
