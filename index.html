@@ -17,32 +17,18 @@
 <body>
 
 <!-- Button to download as PDF -->
-<button id="download-pdf-btn">Download PDF</button>
+<button id="download-pdf-btn" onclick="downloadPDF()>Download PDF</button>
 
 <!-- Placeholder for Google Docs content -->
-<div id="google-docs-container"></div>
+<div id="google-docs-container">
+  <iframe id="google-docs-iframe" src="https://docs.google.com/document/d/1hnyg7u7Uo7GmwTcR6lCOffQ_Y3nHAJNkdkwGck81D6Q/preview" width="100%" height="500px" frameborder="0"></iframe>
+</div>
 <script>
-  // Google Docs Embed API Configuration
-  var documentId = '1hnyg7u7Uo7GmwTcR6lCOffQ_Y3nHAJNkdkwGck81D6Q';
-  var documentName = 'Vishal_Bajad_NET_12+Yrs.pdf';
-  var googleDocsViewerURL = 'https://drive.google.com/viewerng/viewer';
-  var googleDocsFileURL = 'https://drive.google.com/file/d/'+documentId+'/preview';
-  var googleDocsEmbedURL = googleDocsViewerURL + '?embedded=true&url=' + encodeURIComponent(googleDocsFileURL);
-
-  // Embed Google Docs document
-  var googleDocsContainer = document.getElementById('google-docs-container');
-  googleDocsContainer.innerHTML = '<iframe src="' + googleDocsFileURL + '" width="100%" height="600px" frameborder="0"></iframe>';
-
-  function downloadAsPDF() {
+function downloadPDF() {
     var docId = '1hnyg7u7Uo7GmwTcR6lCOffQ_Y3nHAJNkdkwGck81D6Q';
-    var pdfUrl = 'https://docs.google.com/document/d/' + documentId + '/export?format=pdf';
+    var pdfUrl = 'https://docs.google.com/document/d/' + docId + '/export?format=pdf';
     window.open(pdfUrl);
- }
-
-  // Attach event listener to the download PDF button
-  var downloadPDFBtn = document.getElementById('download-pdf-btn');
-  downloadPDFBtn.addEventListener('click', downloadAsPDF);
+}
 </script>
-
 </body>
 </html>
